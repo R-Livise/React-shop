@@ -1,0 +1,25 @@
+@import '_vars'
+
+.Menu
+	height: auto
+	& > ul
+		position: absolute
+		top: 60px
+		visibility: hidden
+		padding: 0
+		display: grid
+		flex-direction: column
+		width: 150px
+		border-radius: 6px
+		box-shadow: 1px 2px 7px 1px rgba(0,0,0,0.34)
+		-webkit-box-shadow: 1px 2px 7px 1px rgba(0,0,0,0.34)
+		-moz-box-shadow: 1px 2px 7px 1px rgba(0,0,0,0.34)
+
+.Menu__title
+	color: var(--md-sys-color-on-surface-variant)
+
+	&:hover
+		color: var(--md-sys-color-secondary)
+
+ul.Menu__active
+	visibility: visible

@@ -1,0 +1,74 @@
+.Navbar ul
+    list-style: none
+
+.Navbar__svg
+    display: grid
+    align-items: center
+    justify-items: center
+
+.Navbar__menu
+    display: none
+
+.Navbar__logo
+    width: 100px
+
+.Navbar-left > ul,.Navbar-right > ul
+    padding: 0
+    margin: 0
+    display: flex
+    align-items: center
+    height: 60px
+
+.Navbar-left
+    display: flex
+
+    & > ul
+        margin-left: 12px
+        & li a
+            text-decoration: none
+            color: var(--md-sys-color-secondary)
+            border: 1px solid var(--white)
+            padding: 8px
+            border-radius: 8px
+            &:hover
+                border: 1px solid var(--md-sys-color-primary)
+                color: var(--md-sys-color-primary)
+
+.Navbar-right
+    display: flex
+    flex-direction: row
+
+    & > ul > li
+        margin-left: 15px
+
+.Navbar-email
+    color: var(--very-light-pink)
+    font-size: var(--sm)
+    margin-right: 12px
+
+.Navbar-shopping-cart
+    position: relative
+
+    & div
+        width: 16px
+        height: 16px
+        background-color: var(--hospital-green)
+        border-radius: 50%
+        font-size: var(--sm)
+        font-weight: bold
+        position: absolute
+        top: -6px
+        right: -3px
+        display: flex
+        justify-content: center
+        align-items: center
+
+@media (max-width: 640px)
+    .Navbar__menu
+        display: flex
+
+    .Navbar-left ul
+        display: none
+
+    .Navbar-email
+        display: none
