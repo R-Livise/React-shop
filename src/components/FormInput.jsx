@@ -1,7 +1,7 @@
 import React from 'react';
 
-import "../styles/FormInput.sass"
-const FormInput = ({ type, label, placeholder, value, onChange }) => {
+import "@styles/FormInput.sass"
+const FormInput = ({ type, label, name, placeholder, value, onChange }) => {
 
     // const [state,setState]=React.useState(setState)
 
@@ -13,6 +13,7 @@ const FormInput = ({ type, label, placeholder, value, onChange }) => {
             <input
                 type={typeInput}
                 id={idFor}
+                name={name}
                 placeholder={placeholder}
                 value={value}
                 className="input input-password"

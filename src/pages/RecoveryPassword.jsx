@@ -1,10 +1,10 @@
 import React from 'react';
 
-import Button from '../components/Button';
+import Button from '@components/Button';
 
 
-import IconEmail from "../assets/icons/email.svg"
-import LogoSale from "../assets/logos/logo_yard_sale.svg"
+import IconEmail from "@icons/email.svg"
+import LogoSale from "@logos/logo_yard_sale.svg"
 
 import '@styles/RecoveryPassword.sass'
 

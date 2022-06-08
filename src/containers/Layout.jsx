@@ -1,11 +1,11 @@
 import React from 'react';
 // Components
-import Menu from '../components/Menu';
-import MenuItem from '../components/MenuItem';
+import Menu from '@components/Menu';
+import MenuItem from '@components/MenuItem';
 import NavBar from './NavBar';
 
 // Hook
-import { useClickOutHere } from "../hook/useClickOutHere"
+import { useClickOutHere } from "../hooks/useClickOutHere"
 
 const Layout = ({ children }) => {
 
@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
     }
 
     const { onClickOutHere, lastId, setLastId } = useClickOutHere()
-    
+
     return (
         <React.Fragment>
             <NavBar navBarRight={
@@ -53,7 +53,7 @@ const Layout = ({ children }) => {
                         <MenuItem
                             key={idx}
                             text={option}
-                            classItem={ idx==2 ? "MenuItem--primary":""}
+                            classItem={idx == 2 ? "MenuItem--primary" : ""}
                         />
                     )}
                 />)]

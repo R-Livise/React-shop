@@ -1,24 +1,34 @@
-import React, { useState } from 'react';
-import '@styles/ProductItem.scss';
-import addToCart from '@icons/bt_add_to_cart.svg';
+import React, { useContext } from 'react';
+import '@styles/ProductItem.sass';
 
-const ProductItem = () => {
-	const [cart, setCart] = useState([]);
+import AppContext from '../context/AppContext';
+
+import IconAddCart from '@icons/bt_add_to_cart.svg';
+
+const ProductItem = ({ product }) => {
+	const { addToCart } = useContext(AppContext)
 
 	const handleClick = () => {
-		setCart([]);
+		addToCart([]);
 	}
+	const priceFormat = new Intl
+		.NumberFormat('PE', {
+			style: 'currency',
+			currency: 'USD'
+		})
+		.format(product.price)
 
 	return (
 		<div className="ProductItem">
-			<img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" />
+
+			<img src={product.images[1]} alt={product.title} />
 			<div className="product-info">
 				<div>
-					<p>$120,00</p>
-					<p>Bike</p>
+					<p>{priceFormat}</p>
+					<p>{product.title}</p>
 				</div>
-				<figure onClick={handleClick} >
-					<img src={addToCart} alt="" />
+				<figure onClick={() => handleClick(product)} >
+					<IconAddCart className="icon-svg" />
 				</figure>
 			</div>
 		</div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import OrderItem from '@components/OrderItem';
-import '@styles/Orders.scss';
+import '@styles/Orders.sass';
 
 const Orders = () => {
 	return (

@@ -1,12 +1,12 @@
 import React from 'react';
-import '../styles/Home.sass'
+import ProductList from '@containers/ProductList';
 
 const Home = () => {
     return (
-        <div className='container-100'>
-            <h2 >React Shop</h2>
-        </div>
+        <>
+            <ProductList />
+        </>
     );
-};
+}
 
 export default Home;

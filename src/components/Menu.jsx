@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../styles/Menu.sass'
+import '@styles/Menu.sass'
 const Menu = ({ title, name, list, children, render, lastIdToggle, setLastIdToggle, onToggle }) => {
     const [idMenu, setIdMenu] = React.useState(`Menu${Math.trunc(Math.random() * 99)}`)
     const idMenuContainer = `${idMenu}-container`

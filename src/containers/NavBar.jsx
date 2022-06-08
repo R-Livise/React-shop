@@ -1,10 +1,17 @@
-import React from 'react';
-import LogoSvg from "../assets/logos/logo_yard_sale.svg"
-import IconCartSvg from "../assets/icons/icon_shopping_cart.svg"
-import IconMenuSvg from "../assets/icons/icon_menu.svg"
+import React, { useContext } from 'react';
 
-import "../styles/NavBar.sass"
+// Svg
+import LogoSvg from "@logos/logo_yard_sale.svg"
+import IconCartSvg from "@icons/icon_shopping_cart.svg"
+import IconMenuSvg from "@icons/icon_menu.svg"
+
+// Context
+import AppContext from '../context/AppContext';
+
+// Style
+import "@styles/NavBar.sass"
 const NavBar = ({ navBarRight }) => {
+  const { state } = useContext(AppContext)
   return (
     <nav className='Navbar'>
       <div className="Navbar__menu Navbar__svg">
@@ -19,7 +26,7 @@ const NavBar = ({ navBarRight }) => {
         </div>
         <ul>
           <li>
-            <a href="/">adasdAll</a>
+            <a href="/">All</a>
           </li>
           <li>
             <a href="/">Clothes</a>
@@ -44,7 +51,7 @@ const NavBar = ({ navBarRight }) => {
           {navBarRight.map((item, idx) => <li key={idx} >{item}</li>)}
           <li className="Navbar-shopping-cart">
             <IconCartSvg className="icon-svg" />
-            <div>2</div>
+            {state.cart.length > 0 && <div>{state.cart.length}</div>}
           </li>
         </ul>
       </div>

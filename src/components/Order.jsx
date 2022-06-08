@@ -1,5 +1,5 @@
 import React from 'react';
-import '@styles/Order.scss';
+import '@styles/Order.sass';
 
 const Order = () => {
 	return (
