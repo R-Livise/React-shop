@@ -9,7 +9,6 @@ import IconMenuSvg from "@icons/icon_menu.svg"
 import AppContext from '../context/AppContext';
 
 // Components
-
 import Menu from '@components/Menu';
 import MenuItem from '@components/MenuItem';
 import MyOrder from '@containers/MyOrder'
@@ -17,10 +16,13 @@ import MyOrder from '@containers/MyOrder'
 // Style
 import "@styles/NavBar.sass"
 import { useClickOutHere } from '../hooks/useClickOutHere';
+import SideBarMenu from './SideBarMenu';
+
 const NavBar = ({ navBarRight }) => {
   const { state } = useContext(AppContext)
   const { onClickOutHere, lastId, setLastId } = useClickOutHere()
   const [toggleOrders, setToggleOrders] = useState(false)
+  const [toggleMenu, setToggleMenu] = useState(false)
 
   const emailOption = ["My orders", "My account", "Sign out"]
   const themeOption = ["OS", "Dark", "Light"]
@@ -37,7 +39,7 @@ const NavBar = ({ navBarRight }) => {
   return (
     <Fragment>
       <nav className='Navbar'>
-        <div className="Navbar__menu Navbar__svg">
+        <div className="Navbar__menu Navbar__svg" onClick={() => setToggleMenu(!toggleMenu)}>
           <IconMenuSvg className="icon-svg" />
 
         </div>
@@ -71,7 +73,7 @@ const NavBar = ({ navBarRight }) => {
 
         <div className="Navbar-right">
           <ul>
-            <li> <Menu
+            <li className='Navbar-right-items'> <Menu
               key="Theme"
               name="Theme"
               list={themeOption}
@@ -86,7 +88,7 @@ const NavBar = ({ navBarRight }) => {
                 />
               )}
             /></li>
-            <li><Menu
+            <li className='Navbar-right-items'><Menu
               key="email"
               name="platzi@example.com"
               list={emailOption}
@@ -110,6 +112,7 @@ const NavBar = ({ navBarRight }) => {
 
       </nav>
       {toggleOrders && <MyOrder onToggle={setToggleOrders} />}
+      {toggleMenu && <SideBarMenu ><IconMenuSvg className="icon-svg" onClick={() => setToggleMenu(!toggleMenu)} /></SideBarMenu>}
     </Fragment>
   );
 };
