@@ -1,18 +1,29 @@
-@import 'vars'
+@import '_vars'
 
 .MyOrder
 	width: 360px
 	padding: 24px
 	box-sizing: border-box
-	position: absolute
+	position: fixed
+	background-color: var(--md-sys-color-background)
+	border: var(--md-sys-color-inverse-on-surface) solid 2px
+	border-radius: 7px
 	right: 0
+	top: 60px
+	width: calc( 100vw/4 )
+	min-width: 350px
+	max-height: calc( 100vh - 120px )
+	overflow-y: scroll
 
 .title-container
 	display: flex
 
-	& img
+	& svg
 		transform: rotate(180deg)
-		margin-right: 14px
+		margin-right: 20px
+		cursor: pointer
+	& svg:hover
+		transform: rotate(0deg)
 
 .title
 	font-size: var(--lg)
@@ -39,17 +50,6 @@
 	& p:nth-child(2)
 		text-align: end
 		font-weight: bold
-
-.primary-button
-	background-color: var(--hospital-green)
-	border-radius: 8px
-	border: none
-	color: var(--white)
-	width: 100%
-	cursor: pointer
-	font-size: var(--md)
-	font-weight: bold
-	height: 50px
 
 @media (max-width: 640px)
 	.MyOrder

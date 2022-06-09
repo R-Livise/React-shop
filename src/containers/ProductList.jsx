@@ -1,23 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ProductItem from '@components/ProductItem';
 import '@styles/ProductList.sass';
-import axios from 'axios';
+import { useGetProducts } from '../hooks/useGetProducts';
 
-const API = "https://api.escuelajs.co/api/v1/products?limit=5&offset=10"
+
+const API = "https://api.escuelajs.co/api/v1/products?limit=50&offset=1"
 
 const ProductList = () => {
 
-    const [products, setProducts] = useState([])
+    const { products, } = useGetProducts(API)
 
-    useEffect(() => {
-        getData()
-    }, [])
-
-    const getData = async () => {
-        const res = await axios.get(API)
-        setProducts(res.data)
-
-    }
     return (
         <section className="main-container">
             <div className="ProductList">

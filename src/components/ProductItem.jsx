@@ -1,16 +1,35 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import '@styles/ProductItem.sass';
 
 import AppContext from '../context/AppContext';
 
 import IconAddCart from '@icons/bt_add_to_cart.svg';
+import IconAddedCart from '@icons/bt_added_to_cart.svg';
 
 const ProductItem = ({ product }) => {
-	const { addToCart } = useContext(AppContext)
-
-	const handleClick = () => {
-		addToCart([]);
+	const { state, addToCart } = useContext(AppContext)
+	const [toggleIconCart, setToggleIconCart] = useState(false)
+	const handleClick = (product) => {
+		addToCart(product);
+		setToggleIconCart(true)
 	}
+
+	useEffect(() => {
+		if (state.lastIdRemoved === product.id) {
+			setToggleIconCart(false)
+		}
+	}, [state.lastIdRemoved])
+
+	useEffect(() => {
+
+		if (state.cart.some(({ id }) => id === product.id)) {
+			setToggleIconCart(true)
+		}
+
+	}, [])
+
+
+
 	const priceFormat = new Intl
 		.NumberFormat('PE', {
 			style: 'currency',
@@ -21,14 +40,18 @@ const ProductItem = ({ product }) => {
 	return (
 		<div className="ProductItem">
 
-			<img src={product.images[1]} alt={product.title} />
+			<img src={product.images[0]} alt={product.title} />
 			<div className="product-info">
 				<div>
 					<p>{priceFormat}</p>
 					<p>{product.title}</p>
+
 				</div>
+
 				<figure onClick={() => handleClick(product)} >
-					<IconAddCart className="icon-svg" />
+					{!!toggleIconCart
+						? <IconAddedCart />
+						: <IconAddCart />}
 				</figure>
 			</div>
 		</div>
