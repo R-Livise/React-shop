@@ -18,6 +18,7 @@ import '@styles/global.sass';
 
 const App = () => {
     const initialState = useInitialState();
+    console.log(initialState)
     return (
         <AppContext.Provider value={initialState}>
             <BrowserRouter basename="/nombre-de-mi-repo">

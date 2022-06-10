@@ -2,13 +2,13 @@
   "name": "react-shop",
   "version": "1.0.0",
   "description": "react eshop",
-  "homepage": "https://r-livise.github.io/React-shop",
+  "homepage": "https://r-livise.github.io/React-shop/",
   "main": "src/index.js",
   "author": "Rafael Livise",
   "license": "MIT",
   "scripts": {
     "predeploy": "yarn build",
-    "deploy": "gh-pages -b gh-pages -d dist",
+    "deploy": "gh-pages -b gh-pages-store -d dist",
     "start": "webpack serve --open",
     "build": "webpack --mode production"
   },
