@@ -9,7 +9,7 @@ module.exports = {
         // filename: 'bundle.js',
         // publicPath: '/',
         //Configration to Github pages
-        filename: "React-shop/bundle.js",
+        filename: "bundle.js",
         publicPath: "/React-shop/",
     },
     mode: 'development',
