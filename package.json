@@ -7,6 +7,8 @@
   "author": "Rafael Livise",
   "license": "MIT",
   "scripts": {
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -b development -d dist",
     "start": "webpack serve --open",
     "build": "webpack --mode production"
   },
@@ -18,6 +20,7 @@
     "@svgr/webpack": "^6.2.1",
     "axios": "^0.27.2",
     "babel-loader": "^8.2.5",
+    "gh-pages": "^4.0.0",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
     "react": "^18.1.0",
