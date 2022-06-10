@@ -21,7 +21,7 @@ const App = () => {
     console.log(initialState)
     return (
         <AppContext.Provider value={initialState}>
-            <BrowserRouter basename="/nombre-de-mi-repo">
+            <BrowserRouter basename="/React-shop">
                 <Layout>
                     <Routes>
                         <Route exact path="/" element={<Home />} />
