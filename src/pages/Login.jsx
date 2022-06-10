@@ -19,7 +19,6 @@ const Login = () => {
       username: formData.get('email'),
       password: formData.get('password')
     }
-    console.warn(data)
   }
   return (
     <div className="Login">
